@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NavBarComponent } from "./nav-bar/nav-bar.component";
+import { environment } from '../../environments/environment.development';
 
 interface WeatherForecast {
   date: string;
@@ -9,14 +8,15 @@ interface WeatherForecast {
   temperatureF: number;
   summary: string;
 }
+
 @Component({
-  selector: 'app-root',
+  selector: 'app-weather',
   standalone: true,
-  imports: [RouterOutlet, NavBarComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [],
+  templateUrl: './weather.component.html',
+  styleUrl: './weather.component.scss'
 })
-export class AppComponent implements OnInit {
+export class WeatherComponent implements OnInit{
   public forecasts: WeatherForecast[] = [];
 
   constructor(private http: HttpClient) {}
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   getForecasts() {
-    this.http.get<WeatherForecast[]>('http://localhost:7287/weatherforecast').subscribe(
+    this.http.get<WeatherForecast[]>(`${environment.baseUrl}weatherforecast`).subscribe(
       (result) => {
         this.forecasts = result;
       },
@@ -38,4 +38,3 @@ export class AppComponent implements OnInit {
 
   title = 'angularcomp584.client';
 }
-
