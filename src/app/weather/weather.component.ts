@@ -17,12 +17,12 @@ interface WeatherForecast {
   styleUrl: './weather.component.scss'
 })
 export class WeatherComponent implements OnInit{
-  public forecasts: WeatherForecast[] = [];
+  public countries: Country[] = [];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.getForecasts();
+    this.getCountries();
   }
 
   getForecasts() {
