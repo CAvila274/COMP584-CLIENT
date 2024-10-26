@@ -1,7 +1,7 @@
 <h1 id="tableLabel">Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
-@if(!forecasts){
+@if(!forcasts){
   <p><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
 
 }@else {
@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-      @for (forecast of forecasts; track $index) {
+      @for (forecast of forcasts; track $index) {
         <tr>
             <td>{{ forecast.date }}</td>
             <td>{{ forecast.temperatureC }}</td>

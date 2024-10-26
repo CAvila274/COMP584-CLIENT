@@ -17,18 +17,18 @@ interface WeatherForecast {
   styleUrl: './weather.component.scss'
 })
 export class WeatherComponent implements OnInit{
-  public countries: Country[] = [];
+  public forcasts: WeatherForecast[] = [];
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    this.getCountries();
+    this.getForecasts();
   }
 
   getForecasts() {
     this.http.get<WeatherForecast[]>(`${environment.baseUrl}weatherforecast`).subscribe(
       (result) => {
-        this.forecasts = result;
+        this.forcasts = result;
       },
       (error) => {
         console.error(error);
