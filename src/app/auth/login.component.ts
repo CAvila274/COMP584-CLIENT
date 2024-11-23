@@ -33,7 +33,10 @@ onSubmit(): void {
     {
       next: result => {
         loginResponse = result;
-        console.log(loginResponse)
+        console.log(loginResponse);
+        if(result.success){
+          localStorage.setItem("coinvalue", result.token);
+        }
       },
       error: e => console.error(e)
     }

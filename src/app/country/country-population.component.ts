@@ -20,7 +20,7 @@ export class CountryPopulationComponent implements OnInit{
   ngOnInit(): void {
     let id_Param = this.activatedRoute.snapshot.paramMap.get('id');
     this.id = id_Param? + id_Param : -1;
-    this.http.get<CountryPopulation>(`${environment.baseUrl}api/Countries/countrypopulation/1/${this.id}`).subscribe(
+    this.http.get<CountryPopulation>(`${environment.baseUrl}api/Countries/countrypopulation/${this.id}`).subscribe(
       {
         next: result => this.CountryPopulation = result,
         error: e => console.error(e)
