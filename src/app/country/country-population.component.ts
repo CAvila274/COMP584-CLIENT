@@ -14,7 +14,7 @@ import { CountryPopulation } from './CountryPopulation';
 })
 export class CountryPopulationComponent implements OnInit{
   id:number = -1;
-  public CountryPopulation!: CountryPopulation;
+  public CountryPopulation: CountryPopulation | undefined;
   constructor(private http: HttpClient, private activatedRoute:ActivatedRoute) {}
   
   ngOnInit(): void {
